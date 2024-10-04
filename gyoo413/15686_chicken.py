@@ -44,18 +44,30 @@ for home in house:
         temp.append(dist)
     chicken_dist.append(temp)
 
-print(chicken_dist)
+min_dist = 1e9
+visited = [0] * c
+def backtracking(level):
+    global m, c, h, min_dist
 
-minimum_chicken_dist = 1e9
-
-# def backtracking(level, dist_sum):
-#     global m, minimum_chicken_dist
-
-#     if level == m:
-#         return
+    if level == m:
+        temp_dist = 0
+        for j in range(h):
+            temp = []
+            for k in range(c):
+                if visited[k] == 1:
+                    temp.append(chicken_dist[j][k])
+            temp_dist += min(temp)
+            if temp_dist > min_dist:
+                return
+        min_dist = temp_dist
+        return 
     
-#     if dist_sum > minimum_chicken_dist:
-#         return
-        
-#     for i in range(len(chicken_dist)):
-#         for j in range()
+    for i in range(c):
+        if visited[i] == 0:
+            visited[i] = 1
+            backtracking(level + 1)
+            visited[i] = 0
+
+backtracking(0)
+
+print(min_dist)
