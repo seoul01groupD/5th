@@ -9,5 +9,5 @@ def make_star(n):
         star.append(' * * ')
         star.append('*****')
     else:
-        t = star(n // 3)
+        t = star(n // 2)
         
