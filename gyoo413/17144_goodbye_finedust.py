@@ -46,7 +46,7 @@ def circulate2(cleaner):
         room[i - 1][0] = room[i][0]
     for j in range(1, c):
         room[r - 1][j - 1] = room[r - 1][j]
-    for i in range(r - 2, cleaner + 1, -1):
+    for i in range(r - 2, cleaner - 1, -1):
         room[i + 1][c - 1] = room[i][c - 1]
     for j in range(c - 2, 0, -1):
         room[cleaner][j + 1] = room[cleaner][j]
